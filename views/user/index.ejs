@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Family Hub</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- FontAwesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.fade-up{
+  animation: fadeUp .8s ease forwards;
+}
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="bg-white/90 backdrop-blur shadow fixed w-full z-50">
+<div class="max-w-7xl mx-auto px-4">
+
+<div class="flex justify-between items-center h-16">
+
+<h2 class="text-2xl font-bold text-green-600">Family Hub</h2>
+
+<!-- Desktop Menu -->
+<ul class="hidden md:flex gap-8 font-medium items-center">
+
+<li><a href="/" class="hover:text-green-600 transition">Home</a></li>
+
+<li><a href="#" class="hover:text-green-600 transition">Products</a></li>
+
+<!-- ✅ BULK PRODUCT DROPDOWN -->
+<li class="relative group">
+
+<button class="flex items-center gap-1 hover:text-green-600 transition">
+Bulk Product
+<i class="fa-solid fa-chevron-down text-xs"></i>
+</button>
+
+<ul class="absolute left-0 top-full mt-2 w-44
+bg-white rounded-xl shadow-lg
+opacity-0 invisible
+group-hover:opacity-100
+group-hover:visible
+translate-y-2 group-hover:translate-y-0
+transition-all duration-300 z-50">
+
+<li>
+<a href="/products/oil"
+class="block px-4 py-2 hover:bg-gray-100 rounded-t-xl">
+Oil
+</a>
+</li>
+
+<li>
+<a href="/products/dal"
+class="block px-4 py-2 hover:bg-gray-100">
+Dal
+</a>
+</li>
+
+<li>
+<a href="/products/fruits"
+class="block px-4 py-2 hover:bg-gray-100 rounded-b-xl">
+Fruits
+</a>
+</li>
+
+</ul>
+</li>
+
+<li><a href="#" class="hover:text-green-600 transition">About</a></li>
+<li><a href="#" class="hover:text-green-600 transition">Contact</a></li>
+
+</ul>
+
+<!-- Right Icons -->
+<div class="hidden md:flex items-center gap-6">
+
+<button class="flex items-center gap-2 hover:text-green-600 transition">
+<i class="fa-solid fa-circle-user text-xl"></i>
+<span>Account</span>
+</button>
+
+<button class="flex items-center gap-2 hover:text-green-600 transition">
+<i class="fa-solid fa-headset"></i>
+<span>Support</span>
+</button>
+
+<a href="/logout"
+class="flex items-center gap-2 text-red-500 hover:text-red-600 font-medium">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
+
+</div>
+
+<!-- Mobile Button -->
+<button id="menuBtn" class="md:hidden text-2xl">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+</div>
+</div>
+
+<!-- ================= MOBILE MENU ================= -->
+<div id="mobileMenu"
+class="hidden md:hidden bg-white shadow-lg border-t">
+
+<ul class="flex flex-col gap-4 p-5 font-medium">
+
+<li><a href="/">Home</a></li>
+<li><a href="#">Products</a></li>
+
+<!-- Mobile dropdown simple -->
+<li class="font-semibold text-gray-600">Bulk Product</li>
+<li class="pl-4"><a href="/products/oil">Oil</a></li>
+<li class="pl-4"><a href="/products/dal">Dal</a></li>
+<li class="pl-4"><a href="/products/fruits">Fruits</a></li>
+
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+
+<li class="text-red-500"><a href="/logout">Logout</a></li>
+
+</ul>
+
+</div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="pt-20 fade-up">
+<img src="/hm-banner3.jpg"
+class="w-full h-[260px] md:h-[450px] object-cover">
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="py-14">
+<div class="max-w-7xl mx-auto px-4">
+
+<h2 class="text-3xl font-bold text-center mb-12 tracking-wide">
+OUR PRODUCTS
+</h2>
+
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+ 
+
+  <% products.forEach((product) => { %>
+
+<a href="/products/details/<%= product._id %>"
+class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition hover:-translate-y-2 group">
+
+  <div class="overflow-hidden">
+    <img src="<%= product.productsImge %>"
+    class="h-44 w-full object-cover group-hover:scale-110 transition duration-500">
+  </div>
+
+  <h3 class="text-center py-4 font-semibold">
+    <%= product.productname %>
+  </h3>
+
+</a>
+
+<% }) %>
+
+
+
+
+</div>
+</div>
+</section>
+
+<!-- ================= WHY CHOOSE ================= -->
+<section class="bg-white py-16">
+<div class="max-w-7xl mx-auto px-4">
+
+<h2 class="text-3xl font-bold text-center mb-12">
+WHY CHOOSE US
+</h2>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+
+<div class="p-8 rounded-xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+<i class="fa-solid fa-truck-fast text-4xl text-green-600 mb-4"></i>
+<h3 class="font-bold">Fast Delivery</h3>
+</div>
+
+<div class="p-8 rounded-xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+<i class="fa-solid fa-handshake-simple text-4xl text-green-600 mb-4"></i>
+<h3 class="font-bold">Trusted Supplier</h3>
+</div>
+
+<div class="p-8 rounded-xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+<i class="fa-solid fa-thumbs-up text-4xl text-green-600 mb-4"></i>
+<h3 class="font-bold">Quality Products</h3>
+</div>
+
+<div class="p-8 rounded-xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+<i class="fa-solid fa-headset text-4xl text-green-600 mb-4"></i>
+<h3 class="font-bold">Customer Support</h3>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-gray-900 text-gray-300 py-14">
+<div class="max-w-7xl mx-auto px-4 text-center">
+
+<h2 class="text-3xl text-white font-bold mb-10">
+CONTACT US
+</h2>
+
+<div class="grid md:grid-cols-3 gap-10">
+
+<div class="hover:text-green-400 transition">
+<i class="fa-solid fa-location-dot text-2xl mb-3"></i>
+<p>123 Main Street, City</p>
+</div>
+
+<div class="hover:text-green-400 transition">
+<i class="fa-solid fa-phone text-2xl mb-3"></i>
+<p>+1 234 567 890</p>
+</div>
+
+<div class="hover:text-green-400 transition">
+<i class="fa-solid fa-envelope text-2xl mb-3"></i>
+<p>contact@familyhub.com</p>
+</div>
+
+</div>
+</div>
+</footer>
+
+<script>
+const btn = document.getElementById("menuBtn");
+const menu = document.getElementById("mobileMenu");
+
+btn.addEventListener("click", ()=>{
+  menu.classList.toggle("hidden");
+});
+</script>
+
+</body>
+</html>
