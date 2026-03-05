@@ -143,6 +143,16 @@ class="hidden md:hidden bg-white shadow-lg border-t">
 <li><a href="#">Contact</a></li>
 
 <li class="text-red-500"><a href="/logout">Logout</a></li>
+<button class="flex items-center gap-2 hover:text-green-600 transition">
+    
+    <span>
+        <% if (user) { %>
+            <a href="/profile" class="font-medium"><i class="fa-solid fa-circle-user text-xl"></i> <%= user.name %></a>
+        <% } else { %>
+            <a href="/profile"><i class="fa-solid fa-circle-user text-xl"></i> <span>Account</span></a>
+        <% } %>
+    </span>
+</button>
 
 </ul>
 
