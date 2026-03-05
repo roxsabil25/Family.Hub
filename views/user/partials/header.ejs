@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title><%= title %></title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- FontAwesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.fade-up{
+  animation: fadeUp .8s ease forwards;
+}
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="bg-white/90 backdrop-blur shadow fixed w-full z-50">
+<div class="max-w-7xl mx-auto px-4">
+
+<div class="flex justify-between items-center h-16">
+
+<h2 class="text-2xl font-bold text-green-600">Family Hub</h2>
+
+<!-- Desktop Menu -->
+<ul class="hidden md:flex gap-8 font-medium items-center">
+
+<li><a href="/" class="hover:text-green-600 transition">Home</a></li>
+
+<li><a href="/products" class="hover:text-green-600 transition">Products</a></li>
+
+<!-- ✅ BULK PRODUCT DROPDOWN -->
+<!-- <li class="relative group">
+
+<button class="flex items-center gap-1 hover:text-green-600 transition">
+Bulk Product
+<i class="fa-solid fa-chevron-down text-xs"></i>
+</button>
+
+<ul class="absolute left-0 top-full mt-2 w-44
+bg-white rounded-xl shadow-lg
+opacity-0 invisible
+group-hover:opacity-100
+group-hover:visible
+translate-y-2 group-hover:translate-y-0
+transition-all duration-300 z-50">
+
+<li>
+<a href="/products/oil"
+class="block px-4 py-2 hover:bg-gray-100 rounded-t-xl">
+Oil
+</a>
+</li>
+
+<li>
+<a href="/products/dal"
+class="block px-4 py-2 hover:bg-gray-100">
+Dal
+</a>
+</li>
+
+<li>
+<a href="/products/fruits"
+class="block px-4 py-2 hover:bg-gray-100 rounded-b-xl">
+Fruits
+</a>
+</li>
+
+</ul>
+</li> -->
+
+<li><a href="/about" class="hover:text-green-600 transition">About</a></li>
+<li><a href="/sourcing" class="hover:text-green-600 transition">Sourcing Agent</a></li>
+<li><a href="#" class="hover:text-green-600 transition">Contact</a></li>
+
+</ul>
+
+<!-- Right Icons -->
+<div class="hidden md:flex items-center gap-6">
+
+<button class="flex items-center gap-2 hover:text-green-600 transition">
+    
+    <span>
+        <% if (user) { %>
+            <a href="/profile" class="font-medium"><i class="fa-solid fa-circle-user text-xl"></i> <%= user.name %></a>
+        <% } else { %>
+            <a href="/profile"><i class="fa-solid fa-circle-user text-xl"></i> <span>Account</span></a>
+        <% } %>
+    </span>
+</button>
+
+
+<button class="flex items-center gap-2 hover:text-green-600 transition">
+<i class="fa-solid fa-headset"></i>
+<a href="https://wa.me/+8801976055300"><span>Support</span></a>
+</button>
+
+<a href="/logout"
+class="flex items-center gap-2 text-red-500 hover:text-red-600 font-medium">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
+
+</div>
+
+<!-- Mobile Button -->
+<button id="menuBtn" class="md:hidden text-2xl">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+</div>
+</div>
+
+<!-- ================= MOBILE MENU ================= -->
+<div id="mobileMenu"
+class="hidden md:hidden bg-white shadow-lg border-t">
+
+<ul class="flex flex-col gap-4 p-5 font-medium">
+
+<li><a href="/">Home</a></li>
+<li><a href="/products">Products</a></li>
+
+<!-- Mobile dropdown simple -->
+<!-- <li class="font-semibold text-gray-600">Bulk Product</li>
+<li class="pl-4"><a href="/products/oil">Oil</a></li>
+<li class="pl-4"><a href="/products/dal">Dal</a></li>
+<li class="pl-4"><a href="/products/fruits">Fruits</a></li> -->
+
+<li><a href="/about">About</a></li>
+<li><a href="#">Contact</a></li>
+
+<li class="text-red-500"><a href="/logout">Logout</a></li>
+
+</ul>
+
+</div>
+</nav>

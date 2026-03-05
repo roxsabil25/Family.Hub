@@ -1,0 +1,100 @@
+<%- include('./partials/header', {title: 'Products | Family Hub'}) %>
+
+<main class="pt-28 pb-16 px-4 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <nav class="text-sm text-gray-500 mb-4">
+            <a href="/" class="hover:text-green-600">Home</a> / <span class="text-gray-800 font-medium uppercase"><%= query.category || 'All Products' %></span>
+        </nav>
+        <h1 class="text-4xl font-bold text-gray-900 mb-8 tracking-tight uppercase">Products</h1>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <aside class="w-full lg:w-64 flex-shrink-0 space-y-8">
+                <form action="/products" method="GET" id="filterForm">
+                    <div class="relative mb-6">
+                        <input type="text" name="search" value="<%= query.search || '' %>" placeholder="Search products..." 
+                            class="w-full border border-gray-200 rounded-lg py-2 px-4 focus:ring-2 focus:ring-green-500 outline-none">
+                        <button type="submit" class="absolute right-3 top-3 text-gray-400">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+
+
+<div class="mb-6">
+    <h3 class="font-bold text-lg mb-4 border-b pb-2">Categories</h3>
+    <ul class="space-y-2 text-gray-600">
+        <li>
+            <a href="/products" class="<%= !query.category ? 'text-green-600 font-bold' : '' %> hover:text-green-600">
+                All Products
+            </a>
+        </li>
+
+        <% categories.forEach(cat => { %>
+            <% if(cat) { %> <li>
+                    <a href="/products?category=<%= cat %>" 
+                       class="<%= query.category === cat ? 'text-green-600 font-bold' : '' %> hover:text-green-600 capitalize">
+                        <%= cat %>
+                    </a>
+                </li>
+            <% } %>
+        <% }) %>
+    </ul>
+</div>
+
+
+                    <div>
+                        <h3 class="font-bold text-lg mb-4 border-b pb-2">Filter by Price</h3>
+                        <input type="range" name="maxPrice" min="0" max="2000" step="50" 
+                            value="<%= query.maxPrice || 2000 %>" 
+                            oninput="this.nextElementSibling.querySelector('.price-val').innerText = this.value"
+                            class="w-full accent-green-600">
+                        <div class="flex justify-between text-sm text-gray-500 mt-2">
+                            <span>Max: $<span class="price-val"><%= query.maxPrice || 2000 %></span></span>
+                            <button type="submit" class="bg-gray-800 text-white px-3 py-1 rounded text-xs uppercase font-bold hover:bg-green-600 transition">Filter</button>
+                        </div>
+                    </div>
+                </form>
+            </aside>
+
+            <div class="flex-grow">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 text-sm text-gray-600 border-b pb-4">
+                    <p>Found <%= products.length %> results</p>
+                    <select onchange="location = this.value;" class="border border-gray-200 rounded px-3 py-2 outline-none focus:border-green-500">
+                        <option value="/products">Default sorting</option>
+                        <option value="/products?sort=lowToHigh" <%= query.sort === 'lowToHigh' ? 'selected' : '' %>>Price: Low to High</option>
+                        <option value="/products?sort=highToLow" <%= query.sort === 'highToLow' ? 'selected' : '' %>>Price: High to Low</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    <% if(products.length > 0) { %>
+                        <% products.forEach(product => { %>
+                            <div class="group relative bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+                                <div class="relative h-64 overflow-hidden">
+                                    <a href="/products/details/<%= product._id %>">
+                                        <img src="<%= product.productsImge %>" alt="<%= product.productname %>" 
+                                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                                    </a>
+                                </div>
+                                <div class="p-4 text-center">
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-1"><%= product.category %></p>
+                                    <h3 class="font-bold text-gray-800 mb-2 group-hover:text-green-600 transition"><%= product.productname %></h3>
+                                    <div class="flex justify-center items-center gap-2">
+                                        <span class="text-green-600 font-bold">$<%= product.price %></span>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <div class="col-span-full py-20 text-center">
+                            <h2 class="text-2xl text-gray-400">No Products Found!</h2>
+                            <a href="/products" class="text-green-600 underline">Clear all filters</a>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('./partials/footer') %>

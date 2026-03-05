@@ -1,0 +1,128 @@
+<%- include('./partials/header', {title: 'Profile | Family Hub'}) %>
+
+
+<main class="pt-28 pb-16 px-4 bg-gray-50 min-h-screen">
+    <div class="max-w-5xl mx-auto">
+        
+        <div class="grid lg:grid-cols-3 gap-8 items-start fade-up">
+            
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 text-center">
+                    <div class="relative inline-block">
+                        <img src="https://ui-avatars.com/api/?name=User+Name&background=059669&color=fff&size=128" 
+                             alt="Profile" 
+                             class="w-32 h-32 rounded-full border-4 border-green-50 mx-auto object-cover">
+                        <button class="absolute bottom-0 right-0 bg-white p-2 rounded-full shadow-md border border-gray-100 hover:text-green-600 transition">
+                            <i class="fa-solid fa-camera text-sm"></i>
+                        </button>
+                    </div>
+                    
+                    <h2 class="mt-4 text-2xl font-bold text-gray-800"><%= user.name %></h2>
+                    <p class="text-gray-500 text-sm">Member since March 2026</p>
+                    
+                    <div class="mt-6 flex flex-wrap justify-center gap-2">
+                        <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase tracking-wider">Verified User</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full uppercase tracking-wider">Premium</span>
+                    </div>
+
+                    <div class="mt-8 border-t pt-6 grid grid-cols-2 gap-4">
+                        <div class="text-center">
+                            <p class="text-lg font-bold text-gray-800">12</p>
+                            <p class="text-xs text-gray-500 uppercase">Orders</p>
+                        </div>
+                        <div class="text-center border-l">
+                            <p class="text-lg font-bold text-gray-800">4</p>
+                            <p class="text-xs text-gray-500 uppercase">Lists</p>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <a href="#" class="flex items-center gap-4 px-6 py-4 bg-green-50 text-green-700 font-bold border-l-4 border-green-600">
+                        <i class="fa-solid fa-user"></i> Personal Info
+                    </a>
+                    <a href="#" class="flex items-center gap-4 px-6 py-4 text-gray-600 hover:bg-gray-50 transition border-l-4 border-transparent">
+                        <i class="fa-solid fa-box"></i> Order History
+                    </a>
+                    <a href="#" class="flex items-center gap-4 px-6 py-4 text-gray-600 hover:bg-gray-50 transition border-l-4 border-transparent">
+                        <i class="fa-solid fa-heart"></i> Wishlist
+                    </a>
+                    <a href="#" class="flex items-center gap-4 px-6 py-4 text-gray-600 hover:bg-gray-50 transition border-l-4 border-transparent">
+                        <i class="fa-solid fa-gear"></i> Settings
+                    </a>
+                </nav>
+            </div>
+
+            <div class="lg:col-span-2 space-y-8">
+                
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-green-600"></i>
+                        Profile Details
+                    </h3>
+                    
+                    <form action="/update-profile" method="POST" class="grid md:grid-cols-2 gap-6">
+                        <div class="md:col-span-1">
+                            <label class="block text-sm font-semibold text-gray-600 mb-2">Name</label>
+                            <input type="text" value="<%= user.name %>" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-green-500 outline-none transition">
+                        </div>
+                        <div class="md:col-span-1">
+                            <label class="block text-sm font-semibold text-gray-600 mb-2">Email Address</label>
+                            <input type="email" value="<%= user.email %>" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-green-500 outline-none transition">
+                        </div>
+                        <div class="md:col-span-1">
+                            <label class="block text-sm font-semibold text-gray-600 mb-2">Phone Number</label>
+                            <input type="text" value="<%= user.phone %>" placeholder="+880 1XXX XXXXXX" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-green-500 outline-none transition">
+                        </div>
+                        <div class="md:col-span-1">
+                            <label class="block text-sm font-semibold text-gray-600 mb-2">Location</label>
+                            <input type="text" value="location" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-green-500 outline-none transition">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-semibold text-gray-600 mb-2">Bio</label>
+                            <textarea rows="3" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-green-500 outline-none transition">I love fresh products from Family Hub!</textarea>
+                        </div>
+                        <div class="md:col-span-2 pt-4">
+                            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all transform hover:-translate-y-1">
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-green-600"></i>
+                        Security & Privacy
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
+                            <div class="flex items-center gap-4">
+                                <div class="p-3 bg-white rounded-xl shadow-sm"><i class="fa-solid fa-key text-gray-400"></i></div>
+                                <div>
+                                    <p class="font-bold text-gray-700">Change Password</p>
+                                    <p class="text-xs text-gray-500">Last changed 3 months ago</p>
+                                </div>
+                            </div>
+                            <button class="text-green-600 font-bold hover:underline">Update</button>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
+                            <div class="flex items-center gap-4">
+                                <div class="p-3 bg-white rounded-xl shadow-sm"><i class="fa-solid fa-mobile-screen text-gray-400"></i></div>
+                                <div>
+                                    <p class="font-bold text-gray-700">Two-Factor Auth</p>
+                                    <p class="text-xs text-gray-500">Keep your account secure</p>
+                                </div>
+                            </div>
+                            <button class="text-gray-400 font-bold">Enable</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<%- include('./partials/footer') %>

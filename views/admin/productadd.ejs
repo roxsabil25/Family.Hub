@@ -57,6 +57,9 @@
       <h2 class="text-xl font-bold mb-4">Add New Product</h2>
       <form action="/admin/products/add" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4">
         <input type="text" name="productname" placeholder="Product Name" class="border rounded p-2 w-full">
+        <input type="text" name="price" placeholder="Product Price" class="border rounded p-2 w-full">
+        <input type="text" name="category" placeholder="Product Category" class="border rounded p-2 w-full">
+
         <textarea name="description" placeholder="Product Description" class="border rounded p-2 w-full"></textarea>
         <input type="file" name="productsImge" accept="image/*" class="border rounded p-2">
         <label class="font-medium">Extra Images</label>
