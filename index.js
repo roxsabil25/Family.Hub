@@ -41,7 +41,7 @@ app.use(async (req, res, next) => {
 
     if (token) {
         try {
-            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            const decoded = jwt.verify(token, process.env.JWT_SECRET, { expiresIn: '1h' }); // token verify
             const user = await User.findById(decoded.userid).lean();
             if (user) {
                 res.locals.user = user; // এখন সব ইজেএস ফাইলে 'user' ভেরিয়েবলটি পাওয়া যাবে
@@ -168,7 +168,7 @@ app.post("/signup", async (req, res) => {
 
     console.log(`OTP for ${password} ${email}: ${otp}`); // For testing, remove in production
       
-      let token = jwt.sign({email:email, userid: user._id }, process.env.JWT_SECRET);
+      let token = jwt.sign({email:email, userid: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
       res.cookie("token", token)
       res.render("user/verify", { email });
       });
@@ -224,7 +224,7 @@ app.post('/login', async (req, res) => {
    await bcrypt.compare(password, user.password, function(err, result) {
     // result == true
      if (result) {
-            let token = jwt.sign({email:email, userid: user._id }, process.env.JWT_SECRET);
+            let token = jwt.sign({email:email, userid: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
            res.cookie("token", token)
            res.redirect('/');
            
@@ -247,7 +247,7 @@ async function requireLogin (req, res, next) {
     }
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET); // token verify
+        const decoded = jwt.verify(token, process.env.JWT_SECRET, { expiresIn: '1h' }); // token verify
 
         const user = await User.findById(decoded.userid).lean(); // DB থেকে user fetch
         if (!user) return res.redirect("/login");
