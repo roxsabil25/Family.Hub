@@ -1,7 +1,7 @@
 <%- include('./partials/header', {title: 'Home | Family Hub'}) %>
 
 <!-- ================= HERO ================= -->
-<section class="pt-20 md:h-[200px] fade-up overflow-hidden lg:h-[700px]">
+<section class=" md:h-[200px] fade-up overflow-hidden lg:h-[700px]">
     <img id="slideshow-img" 
          src="/WhatsApp Image 2026-03-06 at 11.11.14 PM.jpeg" 
          class="w-full md:h-[200px] lg:h-[700px] object-cover transition-opacity duration-1000" 
@@ -15,21 +15,22 @@
     <div class="flex flex-col lg:flex-row items-center gap-12">
       
       <div class="lg:w-1/2 space-y-6">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 border-l-4 border-orange-600 pl-4">
-          ABOUT FAMILY HUB
+        <h2 class="text-[18px] md:text-[30px] font-extrabold text-slate-800 border-l-4 border-orange-600 pl-4">
+          About ALHEBA Export & Import.
         </h2>
         <p class="text-gray-600 leading-relaxed text-justify">
-          Family hub Exim LLP is one of the top leading export company of products founded by Mr. Nadeem Shaikh in 2002 at Mumbai India. We are certified by Government of India and eligible to supply quality of products across the world. We are here to export a quality products across the world in an very competitive price. Our aims to deliver providing them the quality products at a ‘cost-benefit’ basis.
+          ALHEBA Food Export Import & Trading L.L.C. Company is one of the leading exporters and importers and trading companies in Bangladesh established in 2010 by Family Social Media CEO, Shan. Currently certified by the Bangladesh government and qualified to supply quality products worldwide. We are now exporting and importing around 100 quality essential products from Dubai, Qatar, Saudi Arabia, Tanzania, Cambodia and Vietnam directly to the world at very competitive prices. Our aim is to provide them with quality products on a 'cost-benefit' basis. We are also working on trade financial under an existing relationship with the global market in a timely manner.
         </p>
         <a href="/about" class="inline-flex items-center text-orange-600 font-bold hover:text-orange-700 transition-colors">
           Read more <i class="fa-solid fa-angle-right ml-2"></i>
         </a>
       </div>
 
-      <div class="lg:w-1/2 w-full">
-        <img src="/WhatsApp Image 2026-03-06 at 11.11.17 PM.jpeg" 
-             alt="About Family Hub" 
-             class="w-full h-auto rounded-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+      <div class="lg:w-1/2 w-full slideshow-i md:h-[20px] lg:h-[300px] overflow-hidden">
+        <img src="/WhatsApp Imag 2026-03-07 at 11.47.26 PM.jpeg" 
+             alt="About Family Hub"
+             id="slideshow-i" 
+             class=" w-full md:h-[20px] lg:h-[300px] rounded-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
       </div>
       
     </div>
@@ -354,17 +355,47 @@ class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition h
 
         setTimeout(() => {
             currentInde = (currentInde + 1) % image.length;
-            imgElemen.src = images[currentInde];
+            imgElemen.src = image[currentInde];
             imgElemen.style.opacity = 1;
         }, 500); // 0.5 সেকেন্ড সময় নেবে fade হতে
     }
 
     // প্রতি ৫ সেকেন্ড (৫০০০ মিলিসেকেন্ড) পর পর ফাংশনটি কল হবে
-    setInterval(changeImag, 5000);
+    setInterval(changeImag, 5000); 
 </script>
 
 
 
+<script>
+    const imag = [
+        "/WhatsApp Image 2026-03-07 at 11.47.29 PM.jpeg",
+        "/WhatsApp Image 2026-03-07 at 11.47.28 PM.jpeg",
+        "/WhatsApp Image 2026-03-07 at 11.7.28 PM.jpeg",
+        "/WhatsApp Image 2026-03-07 at .47.28 PM.jpeg",
+        "/WhatsApp Image 2026-03-07  11.47.27 PM.jpeg",
+        "/WhatsApp Imag 2026-03-07 at 11.47.26 PM.jpeg",
+      
+        
+        // ... এভাবে img20 পর্যন্ত এড করুন
+    ];
+
+    let currentInd = 0;
+    const imgEleme = document.getElementById('slideshow-i');
+
+    function changeIma() {
+        // opacity কমিয়ে একটি fade effect আনা যায়
+        imgEleme.style.opacity = 0;
+
+        setTimeout(() => {
+            currentInd = (currentInd + 1) % imag.length;
+            imgEleme.src = imag[currentInd];
+            imgEleme.style.opacity = 1;
+        }, 500); // 0.5 সেকেন্ড সময় নেবে fade হতে
+    }
+
+    // প্রতি ৫ সেকেন্ড (৫০০০ মিলিসেকেন্ড) পর পর ফাংশনটি কল হবে
+    setInterval(changeIma, 5000); 
+</script>
 
 
 
