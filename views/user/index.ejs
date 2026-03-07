@@ -1,17 +1,48 @@
 <%- include('./partials/header', {title: 'Home | Family Hub'}) %>
 
 <!-- ================= HERO ================= -->
-<section class="pt-20 fade-up">
-<img src="/hm-banner3.jpg"
-class="w-full h-[260px] md:h-[450px] object-cover">
+<section class="pt-20 md:h-[200px] fade-up overflow-hidden lg:h-[700px]">
+    <img id="slideshow-img" 
+         src="/WhatsApp Image 2026-03-06 at 11.11.14 PM.jpeg" 
+         class="w-full md:h-[200px] lg:h-[700px] object-cover transition-opacity duration-1000" 
+         alt="Slideshow">
+
 </section>
+
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      
+      <div class="lg:w-1/2 space-y-6">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 border-l-4 border-orange-600 pl-4">
+          ABOUT FAMILY HUB
+        </h2>
+        <p class="text-gray-600 leading-relaxed text-justify">
+          Family hub Exim LLP is one of the top leading export company of products founded by Mr. Nadeem Shaikh in 2002 at Mumbai India. We are certified by Government of India and eligible to supply quality of products across the world. We are here to export a quality products across the world in an very competitive price. Our aims to deliver providing them the quality products at a ‘cost-benefit’ basis.
+        </p>
+        <a href="/about" class="inline-flex items-center text-orange-600 font-bold hover:text-orange-700 transition-colors">
+          Read more <i class="fa-solid fa-angle-right ml-2"></i>
+        </a>
+      </div>
+
+      <div class="lg:w-1/2 w-full">
+        <img src="/WhatsApp Image 2026-03-06 at 11.11.17 PM.jpeg" 
+             alt="About Family Hub" 
+             class="w-full h-auto rounded-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+      </div>
+      
+    </div>
+  </div>
+</section>
+
 
 <!-- ================= PRODUCTS ================= -->
 <section class="py-14">
 <div class="max-w-7xl mx-auto px-4">
 
 <h2 class="text-3xl font-bold text-center mb-12 tracking-wide">
-OUR PRODUCTS
+** We Provide range of Products**
 </h2>
 
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -23,9 +54,9 @@ OUR PRODUCTS
 <a href="/products/details/<%= product._id %>"
 class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition hover:-translate-y-2 group">
 
-  <div class="overflow-hidden">
-    <img src="<%= product.productsImge %>"
-    class="h-44 w-full object-cover group-hover:scale-110 transition duration-500">
+  <div class="overflow-hidden md:h[500px] lg:h-[300px]">
+    <img src="<%= product.productsImge %> "
+    class=" md:h-full lg:h-full w-full object-cover group-hover:scale-110 transition duration-500">
   </div>
 
   <h3 class="text-center py-4 font-semibold">
@@ -43,39 +74,136 @@ class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition h
 </div>
 </section>
 
-<!-- ================= WHY CHOOSE ================= -->
-<section class="bg-white py-16">
-<div class="max-w-7xl mx-auto px-4">
+<<section class="bg-gray-50 py-20">
+  <div class="max-w-7xl mx-auto px-4">
+    
+    <h2 class="text-4xl font-extrabold text-center text-slate-800 mb-4">WHY CHOOSE US</h2>
+    <p class="text-center text-gray-500 mb-16 max-w-2xl mx-auto">
+        We prioritize quality, speed, and trust to ensure you get the best experience in the export industry.
+    </p>
 
-<h2 class="text-3xl font-bold text-center mb-12">
-WHY CHOOSE US
-</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fa-solid fa-truck-fast text-2xl text-green-600"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-slate-800">Fast Delivery</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Swift and reliable logistics to get your orders delivered on time, globally.</p>
+      </div>
 
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fa-solid fa-handshake-simple text-2xl text-green-600"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-slate-800">Trusted Supplier</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Certified by the government, we build long-term relationships based on trust.</p>
+      </div>
 
-<div class="p-8 rounded-xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-<i class="fa-solid fa-truck-fast text-4xl text-green-600 mb-4"></i>
-<h3 class="font-bold">Fast Delivery</h3>
-</div>
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fa-solid fa-thumbs-up text-2xl text-green-600"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-slate-800">Quality Products</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Premium products sourced with care to meet international standards.</p>
+      </div>
 
-<div class="p-8 rounded-xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-<i class="fa-solid fa-handshake-simple text-4xl text-green-600 mb-4"></i>
-<h3 class="font-bold">Trusted Supplier</h3>
-</div>
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center">
+        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fa-solid fa-headset text-2xl text-green-600"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2 text-slate-800">24/7 Support</h3>
+        <p class="text-sm text-gray-500 leading-relaxed">Our dedicated support team is here to assist you whenever you need help.</p>
+      </div>
 
-<div class="p-8 rounded-xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-<i class="fa-solid fa-thumbs-up text-4xl text-green-600 mb-4"></i>
-<h3 class="font-bold">Quality Products</h3>
-</div>
-
-<div class="p-8 rounded-xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-<i class="fa-solid fa-headset text-4xl text-green-600 mb-4"></i>
-<h3 class="font-bold">Customer Support</h3>
-</div>
-
-</div>
-</div>
+    </div>
+  </div>
 </section>
+
+
+
+<section class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    
+    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-6">We Are Certified</h2>
+    <p class="text-gray-600 max-w-3xl mx-auto mb-12">
+      We are pleased to inform you that ALNadim Exim LLP is certified by the government of India according to the following standards and permitted to export our quality products globally across the world.
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center mb-16">
+      <img src="/gst-300x300.jpg" alt="MSME" class="h-24 mx-auto object-contain transition hover:scale-105">
+      <img src="/udyogaadhaar-1-300x300.png" alt="APEDA" class="h-24 mx-auto object-contain transition hover:scale-105">
+      <img src="/fieo-300x300.jpg" alt="GST" class="h-24 mx-auto object-contain transition hover:scale-105">
+      <img src="/spice-BOARD-300x300.png" alt="FIEO" class="h-24 mx-auto object-contain transition hover:scale-105">
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-t pt-10">
+      <div class="flex flex-col items-center">
+        <i class="fa-solid fa-earth-americas text-2xl text-orange-600 mb-2"></i>
+        <h4 class="font-bold text-sm">Worldwide shipping</h4>
+      </div>
+      <div class="flex flex-col items-center">
+        <i class="fa-solid fa-tags text-2xl text-orange-600 mb-2"></i>
+        <h4 class="font-bold text-sm">Best competitive pricing</h4>
+      </div>
+      <div class="flex flex-col items-center">
+        <i class="fa-solid fa-truck-fast text-2xl text-orange-600 mb-2"></i>
+        <h4 class="font-bold text-sm">Fast Delivery</h4>
+      </div>
+      <div class="flex flex-col items-center">
+        <i class="fa-solid fa-lock text-2xl text-orange-600 mb-2"></i>
+        <h4 class="font-bold text-sm">100% Secure Checkout</h4>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+<script>
+    const images = [
+        "/WhatsApp Image 2026-03-06 at 11.11.14 PM.jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.17 PM (1).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.17 PM.jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.21 PM.jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.22 PM (1).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.22 PM (2).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.22 PM.jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.23 PM (1).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.23 PM (2).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.23 PM (3).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.23 PM.jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.24 PM (1).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.24 PM (2).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.24 PM (3).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.24 PM.jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.25 PM (1).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.25 PM (2).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.26 PM (1).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.21 PM (1).jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.26 PM.jpeg",
+        "/WhatsApp Image 2026-03-06 at 11.11.25 PM.jpeg",
+        // ... এভাবে img20 পর্যন্ত এড করুন
+    ];
+
+    let currentIndex = 0;
+    const imgElement = document.getElementById('slideshow-img');
+
+    function changeImage() {
+        // opacity কমিয়ে একটি fade effect আনা যায়
+        imgElement.style.opacity = 0;
+
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            imgElement.src = images[currentIndex];
+            imgElement.style.opacity = 1;
+        }, 500); // 0.5 সেকেন্ড সময় নেবে fade হতে
+    }
+
+    // প্রতি ৫ সেকেন্ড (৫০০০ মিলিসেকেন্ড) পর পর ফাংশনটি কল হবে
+    setInterval(changeImage, 5000);
+</script>
+
 
 <%- include('./partials/footer') %>
   
