@@ -131,6 +131,14 @@ app.get('/admin/products/delete/:id', async (req, res) => {
  let product = await Product.findByIdAndDelete(req.params.id);
   res.redirect("/admin/products/add");
 });
+
+
+
+
+
+
+
+
  
                //signup/////
 function generateOTP() {
