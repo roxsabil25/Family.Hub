@@ -15,8 +15,8 @@
     <div class="flex flex-col lg:flex-row items-center gap-12">
       
       <div class="lg:w-1/2 space-y-6">
-        <h2 class="text-[18px] md:text-[30px] font-extrabold text-slate-800   pl-4">
-          About ALHEBA Export & Import.
+        <h2 class="text-[15px] md:text-[25px] font-extrabold text-slate-800   pl-4">
+          About ALHEBA FOOD Export & Import L.L.C.
         </h2>
         <p class="text-gray-600 leading-relaxed text-justify">
           ALHEBA Food Export Import & Trading L.L.C. Company is one of the leading exporters and importers and trading companies in Bangladesh established in 2010 by Family Social Media CEO, Shan. Currently certified by the Bangladesh government and qualified to supply quality products worldwide. We are now exporting and importing around 100 quality essential products from Dubai, Qatar, Saudi Arabia, Tanzania, Cambodia and Vietnam directly to the world at very competitive prices. Our aim is to provide them with quality products on a 'cost-benefit' basis. We are also working on trade financial under an existing relationship with the global market in a timely manner.
@@ -30,7 +30,7 @@
         <img src="/WhatsApp Imag 2026-03-07 at 11.47.26 PM.jpeg" 
              alt="About Family Hub"
              id="slideshow-i" 
-             class=" w-full md:h-[20px] lg:h-[300px] rounded-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+             class=" w-full md:h-[20px] lg:h-[300px]  shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
       </div>
       
     </div>
@@ -38,41 +38,103 @@
 </section>
 
 
-<!-- ================= PRODUCTS ================= -->
-<section class="py-14">
-<div class="max-w-7xl mx-auto px-4">
+<section class="relative bg-cover bg-center py-20 px-10" style="background-image: url('/WhatsApp Image 2026-03-06 at 11.11.17 PM.jpeg');">
+  
+  <div class="absolute inset-0 bg-black/50"></div>
 
-<h2 class="text-3xl font-bold text-center mb-12 tracking-wide">
-** We Provide range of Products**
-</h2>
+  <div class="relative z-10 max-w-7xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-emerald-400 mb-12">What We Do</h2>
 
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+        <div class="w-16 h-16 mb-4">
+          <img src="/spice-BOARD-300x300.png" alt="Export">
+        </div>
+        <h3 class="text-xl font-bold text-emerald-500 mb-2">Export</h3>
+        <p class="text-gray-600 text-sm">We export high-quality agricultural products to global markets.</p>
+      </div>
 
- 
+      <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+        <div class="w-16 h-16 mb-4">
+          <img src="/spice-BOARD-300x300.png" alt="Export">
+        </div>
+        <h3 class="text-xl font-bold text-emerald-500 mb-2">Export</h3>
+        <p class="text-gray-600 text-sm">We export high-quality agricultural products to global markets.</p>
+      </div>
 
-  <% products.forEach((product) => { %>
+      <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+        <div class="w-16 h-16 mb-4">
+          <img src="/spice-BOARD-300x300.png" alt="Export">
+        </div>
+        <h3 class="text-xl font-bold text-emerald-500 mb-2">Export</h3>
+        <p class="text-gray-600 text-sm">We export high-quality agricultural products to global markets.</p>
+      </div>
 
-<a href="/products/details/<%= product._id %>"
-class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition hover:-translate-y-2 group">
+      <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+        <div class="w-16 h-16 mb-4">
+          <img src="/spice-BOARD-300x300.png" alt="Export">
+        </div>
+        <h3 class="text-xl font-bold text-emerald-500 mb-2">Export</h3>
+        <p class="text-gray-600 text-sm">We export high-quality agricultural products to global markets.</p>
+      </div>
 
-  <div class="overflow-hidden md:h[500px] lg:h-[300px]">
-    <img src="<%= product.productsImge %> "
-    class=" md:h-full lg:h-full w-full object-cover group-hover:scale-110 transition duration-500">
+
+      </div>
   </div>
-
-  <h3 class="text-center py-4 font-semibold">
-    <%= product.productname %>
-  </h3>
-
-</a>
-
-<% }) %>
+</section>
 
 
+<!-- ================= PRODUCTS ================= -->
+<section id="all-products" class="py-14 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 tracking-wide">
+      We Provide Bulk Products
+    </h2>
 
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <% if (products.length > 0) { %>
+        <% products.forEach((product) => { %>
+          <a href="/products/details/<%= product._id %>" class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition hover:-translate-y-2 group">
+            <div class="overflow-hidden h-60 md:h-72 lg:h-64">
+              <img src="<%= product.productsImge %>" class="h-full w-full object-cover group-hover:scale-110 transition duration-500" alt="<%= product.productname %>">
+            </div>
+            <h3 class="text-center py-4 font-semibold text-gray-800">
+              <%= product.productname %>
+            </h3>
+          </a>
+        <% }) %>
+      <% } else { %>
+        <p class="text-center col-span-full text-gray-500">No products found.</p>
+      <% } %>
+    </div>
 
-</div>
-</div>
+    <% if (totalPages > 1) { %>
+    <div class="flex justify-center items-center space-x-2 mt-16">
+      
+      <% if (currentPage > 1) { %>
+        <a href="/?page=<%= currentPage - 1 %>#all-products" class="px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-emerald-500 hover:text-white transition shadow-sm">
+          Previous
+        </a>
+      <% } %>
+
+      <% for(let i = 1; i <= totalPages; i++) { %>
+        <a href="/?page=<%= i %>#all-products" 
+           class="px-4 py-2 rounded-lg border transition font-medium <%= currentPage === i ? 'bg-emerald-600 text-white border-emerald-600 shadow-md' : 'bg-white border-gray-300 text-gray-700 hover:bg-emerald-500 hover:text-white' %>">
+           <%= i %>
+        </a>
+      <% } %>
+
+      <% if (currentPage < totalPages) { %>
+        <a href="/?page=<%= currentPage + 1 %>#all-products" class="px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-emerald-500 hover:text-white transition shadow-sm">
+          Next
+        </a>
+      <% } %>
+
+    </div>
+    <% } %>
+
+  </div>
 </section>
 
 <section class="py-16 bg-white">
@@ -88,7 +150,7 @@ class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition h
         <div class="overflow-hidden rounded-lg"><img src="/WhatsApp Image 2026-03-06 at 11.11.24 PM (2).jpeg" class="w-full h-full object-cover" alt="Product"></div>
       </div>
 
-      <div class="space-y-6">
+      <div class="space-y-6 bg-[#b74c16] p-8 rounded-xl text-white">
   
   <div class="flex items-start gap-4">
     <div class="bg-green-700 p-3 rounded text-white"><i class="fas fa-plane"></i></div>
@@ -174,6 +236,61 @@ class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition h
 </section>
 
 
+<style>
+  html { scroll-behavior: smooth; }
+</style>
+
+<section id="all-products" class="py-14 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 tracking-wide">
+     We Peovide Container Product.
+    </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <% if (products.length > 0) { %>
+        <% products.forEach((product) => { %>
+          <a href="/products/details/<%= product._id %>" class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition hover:-translate-y-2 group">
+            <div class="overflow-hidden h-60 md:h-72 lg:h-64">
+              <img src="<%= product.productsImge %>" class="h-full w-full object-cover group-hover:scale-110 transition duration-500" alt="<%= product.productname %>">
+            </div>
+            <h3 class="text-center py-4 font-semibold text-gray-800">
+              <%= product.productname %>
+            </h3>
+          </a>
+        <% }) %>
+      <% } else { %>
+        <p class="text-center col-span-full text-gray-500">No products found.</p>
+      <% } %>
+    </div>
+
+    <% if (totalPages > 1) { %>
+    <div class="flex justify-center items-center space-x-2 mt-16">
+      
+      <% if (currentPage > 1) { %>
+        <a href="/?page=<%= currentPage - 1 %>#all-products" class="px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-emerald-500 hover:text-white transition shadow-sm">
+          Previous
+        </a>
+      <% } %>
+
+      <% for(let i = 1; i <= totalPages; i++) { %>
+        <a href="/?page=<%= i %>#all-products" 
+           class="px-4 py-2 rounded-lg border transition font-medium <%= currentPage === i ? 'bg-emerald-600 text-white border-emerald-600 shadow-md' : 'bg-white border-gray-300 text-gray-700 hover:bg-emerald-500 hover:text-white' %>">
+           <%= i %>
+        </a>
+      <% } %>
+
+      <% if (currentPage < totalPages) { %>
+        <a href="/?page=<%= currentPage + 1 %>#all-products" class="px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-emerald-500 hover:text-white transition shadow-sm">
+          Next
+        </a>
+      <% } %>
+
+    </div>
+    <% } %>
+
+  </div>
+</section>
+
 <section class="bg-gray-50 py-20">
   <div class="max-w-7xl mx-auto px-4">
     
@@ -217,6 +334,57 @@ class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition h
       </div>
 
     </div>
+  </div>
+</section>
+
+<section id="all-products" class="py-14 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 tracking-wide">
+      We Peovide Short Product.
+    </h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <% if (products.length > 0) { %>
+        <% products.forEach((product) => { %>
+          <a href="/products/details/<%= product._id %>" class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-2xl transition hover:-translate-y-2 group">
+            <div class="overflow-hidden h-60 md:h-72 lg:h-64">
+              <img src="<%= product.productsImge %>" class="h-full w-full object-cover group-hover:scale-110 transition duration-500" alt="<%= product.productname %>">
+            </div>
+            <h3 class="text-center py-4 font-semibold text-gray-800">
+              <%= product.productname %>
+            </h3>
+          </a>
+        <% }) %>
+      <% } else { %>
+        <p class="text-center col-span-full text-gray-500">No products found.</p>
+      <% } %>
+    </div>
+
+    <% if (totalPages > 1) { %>
+    <div class="flex justify-center items-center space-x-2 mt-16">
+      
+      <% if (currentPage > 1) { %>
+        <a href="/?page=<%= currentPage - 1 %>#all-products" class="px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-emerald-500 hover:text-white transition shadow-sm">
+          Previous
+        </a>
+      <% } %>
+
+      <% for(let i = 1; i <= totalPages; i++) { %>
+        <a href="/?page=<%= i %>#all-products" 
+           class="px-4 py-2 rounded-lg border transition font-medium <%= currentPage === i ? 'bg-emerald-600 text-white border-emerald-600 shadow-md' : 'bg-white border-gray-300 text-gray-700 hover:bg-emerald-500 hover:text-white' %>">
+           <%= i %>
+        </a>
+      <% } %>
+
+      <% if (currentPage < totalPages) { %>
+        <a href="/?page=<%= currentPage + 1 %>#all-products" class="px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-emerald-500 hover:text-white transition shadow-sm">
+          Next
+        </a>
+      <% } %>
+
+    </div>
+    <% } %>
+
   </div>
 </section>
 

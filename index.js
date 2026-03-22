@@ -56,11 +56,25 @@ app.use(async (req, res, next) => {
 
 // routes
 app.get('/', async (req, res) => {
-   let products = await Product.find();
-  
-   
-    
-    res.render('user/index', { products });
+    const limit = 8; // প্রতি পেজে ৮টি প্রোডাক্ট
+    const page = parseInt(req.query.page) || 1; // বর্তমান পেজ নম্বর
+
+    try {
+        const totalProducts = await Product.countDocuments(); // মোট প্রোডাক্ট সংখ্যা
+        const products = await Product.find()
+            .skip((page - 1) * limit) 
+            .limit(limit)
+            .sort({ createdAt: -1 }); // নতুনগুলো আগে দেখাবে
+
+        res.render('user/index', {
+            products,
+            currentPage: page,
+            totalPages: Math.ceil(totalProducts / limit)
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+    }
 });
 
 app.get('/admin/products/add', async (req, res) => {
